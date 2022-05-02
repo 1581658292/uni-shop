@@ -1,5 +1,9 @@
 <template>
 	<view>
+		<!-- 搜索区域 -->
+		<view class="my-search-box">
+			<my-search></my-search>
+		</view>
 		<!-- 轮播图区域 -->
 		<swiper :indicator-dots="true" :autoplay="true" :interval="3000" :duration="1000" :circular="true">
 			<swiper-item v-for=" (item,i) in swiperList" :key="i">
@@ -137,5 +141,10 @@
 	.floor-img-box {
 		display: flex;
 		padding-left: 10rpx;
+	}
+	.my-search-box {
+		position: sticky;
+		top: 0;
+		z-index: 999;
 	}
 </style>
