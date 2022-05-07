@@ -7,7 +7,8 @@
 			<scroll-view class="left-scroll-view" scroll-y="true" :style="{height: wh + 'px'}">
 				<block v-for="(item,index) in cateList" :key="index">
 					<view :class="['left-scroll-item',index===active?'active':'']" @click="activeChange(index)">
-						{{item.cat_name}}</view>
+						{{item.cat_name}}
+					</view>
 				</block>
 			</scroll-view>
 			<!-- 右侧滑动区域 -->
@@ -21,7 +22,7 @@
 					<view class="cate-lv3-list">
 						<!--三级分类的item -->
 						<view class="cate-lv3-item" v-for="(item3,index3) in item2.children" :key="index3"
-						@click="getGoodsList(item3)">
+							@click="getGoodsList(item3)">
 							<!-- 三级分类的图片 -->
 							<image :src="item3.cat_icon"></image>
 							<text>{{item3.cat_name}}</text>
@@ -35,7 +36,9 @@
 </template>
 
 <script>
+	import badge from '@/mixins/tabbar-badge.js'
 	export default {
+		mixins: [badge],
 		data() {
 			return {
 				//当前设备可用的高度
@@ -52,7 +55,7 @@
 		onLoad() {
 			const sysInfo = uni.getSystemInfoSync()
 			//console.log(sysInfo);
-			this.wh = sysInfo.windowHeight-50
+			this.wh = sysInfo.windowHeight - 50
 			this.getCateList()
 		},
 		methods: {
@@ -75,15 +78,15 @@
 				this.scrollTop = this.scrollTop === 0 ? 1 : 0
 			},
 			//跳转到商品列表页面
-			getGoodsList(item3){
+			getGoodsList(item3) {
 				uni.navigateTo({
-					url:'/subpkg/goods_list/goods_list?cid='+item3.cat_id
+					url: '/subpkg/goods_list/goods_list?cid=' + item3.cat_id
 				})
 			},
 			//跳转到搜索页面
-			gotoSearch(){
+			gotoSearch() {
 				uni.navigateTo({
-					url:'/subpkg/search/search'
+					url: '/subpkg/search/search'
 				})
 			}
 		}
