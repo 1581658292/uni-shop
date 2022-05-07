@@ -13,7 +13,9 @@
 
 		}, {
 			"path": "pages/my/my",
-			"style": {}
+			"style": {
+				
+			}
 		}
 
 	
@@ -58,9 +60,9 @@
 	"navigationBarTextStyle": "black",
 	"navigationBarTitleText": "多多优购",
 	"navigationBarBackgroundColor": "#C00000",
-	"backgroundColor": "#F8F8F8",
+	"backgroundColor": "#ffffff",
 	"app-plus": {
-		"background": "#efeff4"
+		"background": "#C00000"
 	}
 },
 "tabBar": {
